@@ -64,6 +64,8 @@ app.get('/partials/:name', routes.partials);
 
 // JSON API
 app.get('/api/name', api.name);
+
+app.post('/postit/',   api.create(io));
 app.put('/postit/:id', api.update(io));
 
 // redirect all others to the index (HTML5 history)
