@@ -4,10 +4,13 @@
   "private": true,
   "dependencies": {
     "consolidate": "^0.13.1",
+    "cors": "^2.7.1",
     "ejs": "^2.3.4",
     "express": "~3.2.6",
+    "install": "^0.4.1",
     "jade": "~0.31.2",
     "mongoose": "4.0.3",
-    "socket.io": "~0.9.16"
+    "remove": "^0.1.5",
+    "socket.io": "^0.9.17"
   }
 }

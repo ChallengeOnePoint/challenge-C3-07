@@ -12,8 +12,7 @@ exports.name = function (req, res) {
 
 exports.update = function(io) {
   return function (req, res) {
-    console.log(req.body);
-    io.emit('update', req.body);
+    io.emit('update', {postit: req.body});
     
     res.json({
       success: true,
@@ -24,7 +23,7 @@ exports.update = function(io) {
 
 exports.create = function(io) {
   return function (req, res) {
-    io.emit('create', req.body);
+    io.sockets.emit('create', {postit: req.body});
     
     res.json({
       success: true,

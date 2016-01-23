@@ -8,7 +8,8 @@ var express = require('express'),
   api = require('./routes/api'),
   http = require('http'),
   path = require('path'),
-  engines = require('consolidate');
+  engines = require('consolidate'),
+  cors = require('cors');
 
 var app = module.exports = express();
 var server = require('http').createServer(app);
@@ -36,6 +37,7 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.engine('html', engines.ejs);
 app.set('view engine', 'html');
+app.use(cors());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());

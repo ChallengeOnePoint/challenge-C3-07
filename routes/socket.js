@@ -5,16 +5,8 @@
 var sockets = [];
 
 module.exports = function (socket) {
-  socket.emit('send:name', {
-    name: 'Bob'
-  });
-
-  setInterval(function () {
-    socket.emit('send:time', {
-      time: (new Date()).toString()
-    });
-  }, 1000);
   
+  console.log('user connected');
   
   socket.on('disconnect', function(){
     console.log('user disconnected');

@@ -29,16 +29,20 @@ var cards = [
 
 angular.module('myApp.controllers', []).
   controller('AppCtrl', function ($scope, socket) {
-    socket.on('send:name', function (data) {
-      $scope.name = data.name;
-    });
   }).
-  controller('MyCtrl1', function ($scope, socket, ModalService) {
-    
+  controller('MyCtrl1', function ($scope, ModalService, socket) {
     $scope.cards = cards;
+    console.log(socket);
     
-    socket.on('send:time', function (data) {
-      $scope.time = data.time;
+    socket.on('create', function (data) {
+      console.log('created');
+      $scope.cards = angular.copy($scope.cards).push(data);
+    });
+    
+    
+    socket.on('update', function (data) {
+      console.log('created');
+      $scope.cards = angular.copy($scope.cards).push(data);
     });
     
     
