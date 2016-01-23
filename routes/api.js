@@ -12,22 +12,23 @@ exports.name = function (req, res) {
 
 exports.update = function(io) {
   return function (req, res) {
-    console.log(req);
-    io.emit('update', req.data, { for: 'everyone' });
+    console.log(req.body);
+    io.emit('update', req.body);
     
     res.json({
-      success: true
+      success: true,
+      postit: req.body
     });
   };
 }
 
 exports.create = function(io) {
   return function (req, res) {
-    console.log(req);
-    io.emit('create', req.data, { for: 'everyone' });
+    io.emit('create', req.body);
     
     res.json({
-      success: true
+      success: true,
+      postit: req.body
     });
   };
 }
