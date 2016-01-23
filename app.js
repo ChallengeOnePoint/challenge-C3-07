@@ -1,11 +1,9 @@
-
 /**
  * Module dependencies
  */
 
 var express = require('express'),
   mongoose = require ('mongoose'),
-  models = require ('./models'),
   routes = require('./routes'),
   api = require('./routes/api'),
   http = require('http'),
@@ -15,6 +13,19 @@ var express = require('express'),
 var app = module.exports = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
+
+mongoose.connect("mongodb://127.0.0.1:27017/test");
+
+// create a schema for post it 
+var PostItSchema = mongoose.Schema({
+  _id: String,
+  created: Date,
+  content: String,
+  background: String
+});
+
+// create a model from the post it schema
+var PostIt = mongoose.model('PostIt', PostItSchema);
 
 /**
  * Configuration
@@ -48,6 +59,7 @@ if (app.get('env') === 'production') {
 
 // serve index and view partials
 app.get('/', routes.index);
+
 app.get('/partials/:name', routes.partials);
 
 // JSON API
