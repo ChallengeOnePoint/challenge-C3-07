@@ -4,6 +4,8 @@
  */
 
 var express = require('express'),
+  mongoose = require ('mongoose'),
+  models = require ('./models'),
   routes = require('./routes'),
   api = require('./routes/api'),
   http = require('http'),
