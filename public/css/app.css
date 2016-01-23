@@ -28,3 +28,20 @@
   content: "";
   padding: 0;
 }
+
+.bg-disabled {
+  background-color: #ddd;
+}
+
+.postit-editing-message {
+  margin: 0 5px 5px 5px;
+  font-weight: bold;
+}
+
+.margin-sm-left {
+  margin-left: 10px;
+}
+
+.margin-sm-right {
+  margin-right: 10px;
+}

@@ -7,3 +7,14 @@ exports.name = function (req, res) {
   	name: 'Bob'
   });
 };
+
+exports.update = function(io) {
+  return function (req, res) {
+    console.log(req);
+    io.emit('update', req.data, { for: 'everyone' });
+    
+    res.json({
+      success: true
+    });
+  };
+}

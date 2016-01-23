@@ -1,38 +1,19 @@
-<div class="row">
-  <div class="col-xs-12">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th colspan="2">Actions</th>
-        </tr>
-      </thead>
-      
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Name 1</td>
-          <td>Longue description bla blab eopjzobpnez noponofp efz</td>
-          <td>
-            <button class="btn btn-primary btn-sm" type="submit">
-              <span class="glyphicon glyphicon-plus"></span>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Name 2</td>
-          <td>Longue description bla blab eopjzobpnez noponofp efz</td>
-          <td>
-            <button class="btn btn-primary btn-sm" type="submit">
-              <span class="glyphicon glyphicon-plus"></span>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-      
-    </table>
+<div class="container" style="margin-top: 50px;">
+  <div class="row">
+    
+    <div class="col-md-3" ng-repeat="card in cards">
+      <div class="thumbnail">
+        <div class="caption" ng-class="card.readOnly ? 'bg-disabled' : card.background">
+          <div class="pull-left margin-sm-right">#{{card.id}}</div>
+          <button type="submit" class="btn btn-primary btn-sm pull-right margin-sm-left" ng-class="{ 'disabled': card.readOnly }"
+              ng-click="openPostitForm(card)">
+            <span class="glyphicon glyphicon-edit"></span>
+          </button>
+          <div ng-show="card.readOnly" class="postit-editing-message"><em>En cours d'édition...</em></div>
+          {{card.content}}
+        </div>
+      </div>
+    </div>
   </div>
+  
 </div>
