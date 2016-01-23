@@ -1,0 +1,12 @@
+{
+  "name": "application-name",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "consolidate": "^0.13.1",
+    "ejs": "^2.3.4",
+    "express": "~3.2.6",
+    "jade": "~0.31.2",
+    "socket.io": "~0.9.16"
+  }
+}
