@@ -4,6 +4,12 @@ var mongoose = require ('mongoose');
  * Serve JSON to our AngularJS client
  */
 
+exports.get = function (PostIt) {
+   return function(req, res){
+     res.json(PostIt.find().exec());
+  };
+};
+
 exports.name = function (req, res) {
   res.json({
   	name: 'Bob'

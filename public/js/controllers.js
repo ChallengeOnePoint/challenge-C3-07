@@ -30,21 +30,8 @@ var cards = [
 angular.module('myApp.controllers', []).
   controller('AppCtrl', function ($scope, socket) {
   }).
-  controller('MyCtrl1', function ($scope, ModalService, socket) {
+  controller('MyCtrl1', function ($scope, ModalService, socket, $http) {
     $scope.cards = cards;
-    console.log(socket);
-    
-    socket.on('create', function (data) {
-      console.log('created');
-      $scope.cards = angular.copy($scope.cards).push(data);
-    });
-    
-    
-    socket.on('update', function (data) {
-      console.log('created');
-      $scope.cards = angular.copy($scope.cards).push(data);
-    });
-    
     
     $scope.openPostitForm = function(postit) {
       ModalService.showModal({

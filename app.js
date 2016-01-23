@@ -68,6 +68,8 @@ app.get('/api/name', api.name);
 app.post('/api/postit',   api.create(io));
 app.put('/api/postit/:id', api.update(io));
 
+app.get('/api/postit', api.get(PostIt));
+
 // serve index and view partials
 app.get('/', routes.index);
 
